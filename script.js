@@ -90,3 +90,17 @@ if (country == null) {
 } else {
   remove(country);
 }
+
+//fill up the country code
+
+fillCountryCode();
+
+async function fillCountryCode() {
+  const countryCodeField = document.querySelector("#country-code");
+  const findCountryCodeURL = `https://restcountries.com/v3.1/alpha?codes=${country}`;
+  let countryCode = [];
+  const response = await fetch(findCountryCodeURL);
+  const data = await response.json();
+  countryCode = `${data[0].idd.root}${data[0].idd.suffixes[0]}`;
+  countryCodeField.value = countryCode;
+}
