@@ -61,7 +61,6 @@ async function getLocation() {
   const response = await fetch(api_url);
   const data = await response.json();
   country = data.cc;
-  console.log("test");
   sessionStorage.setItem("country", country);
   remove(country);
 }
@@ -74,7 +73,6 @@ function remove(country) {
     }
     for (var i = 0; i < ind.length; i++) {
       ind[i].style.display = "block";
-      console.log("it is india");
     }
   } else {
     for (var i = 0; i < intr.length; i++) {
@@ -83,7 +81,6 @@ function remove(country) {
     for (var i = 0; i < ind.length; i++) {
       ind[i].style.display = "none";
     }
-    console.log("it is international");
   }
 }
 
