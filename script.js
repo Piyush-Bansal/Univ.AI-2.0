@@ -62,7 +62,6 @@ async function getLocation() {
   const data = await response.json();
   country = data.cc;
   sessionStorage.setItem("country", country);
-  fillCountryCode();
   remove(country);
 }
 
@@ -93,6 +92,8 @@ if (country == null) {
 }
 
 //fill up the country code
+
+fillCountryCode();
 
 async function fillCountryCode() {
   const countryCodeField = document.querySelector("#country-code");
