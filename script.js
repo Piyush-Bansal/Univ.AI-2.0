@@ -61,6 +61,7 @@ async function getLocation() {
   const response = await fetch(api_url);
   const data = await response.json();
   country = data.cc;
+  console.log("test");
   sessionStorage.setItem("country", country);
   remove(country);
 }
