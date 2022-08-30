@@ -48,3 +48,47 @@ function fill_form() {
   document.getElementById("content").value =
     sessionStorage.getItem("utm_content");
 }
+
+//get country and change values
+
+let intr = document.getElementsByClassName("int");
+let ind = document.getElementsByClassName("inr");
+let country = sessionStorage.getItem("country");
+const api_url = "https://course.univ.ai/cc/";
+
+//Get user location
+async function getLocation() {
+  const response = await fetch(api_url);
+  const data = await response.json();
+  country = data.cc;
+  sessionStorage.setItem("country", country);
+  remove(country);
+}
+
+//Remove objects
+function remove(country) {
+  if (country == "IN") {
+    for (var i = 0; i < intr.length; i++) {
+      intr[i].style.display = "none";
+    }
+    for (var i = 0; i < ind.length; i++) {
+      ind[i].style.display = "block";
+      console.log("it is india");
+    }
+  } else {
+    for (var i = 0; i < intr.length; i++) {
+      intr[i].style.display = "block";
+    }
+    for (var i = 0; i < ind.length; i++) {
+      ind[i].style.display = "none";
+    }
+    console.log("it is international");
+  }
+}
+
+//Check for country
+if (country == null) {
+  getLocation();
+} else {
+  remove(country);
+}
