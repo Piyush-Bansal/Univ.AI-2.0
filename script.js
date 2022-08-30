@@ -35,7 +35,6 @@ function check_storage() {
     fill_form();
   } else {
     document.getElementById("source").value = "Direct Traffic";
-    document.getElementById("medium").value = "Enquire Landing page";
   }
 }
 
