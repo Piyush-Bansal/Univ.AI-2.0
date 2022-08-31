@@ -63,6 +63,7 @@ async function getLocation() {
   country = data.cc;
   sessionStorage.setItem("country", country);
   remove(country);
+  fillCountryCode();
 }
 
 //Remove objects
@@ -87,7 +88,6 @@ function remove(country) {
 //Check for country
 if (country == null) {
   getLocation();
-  fillCountryCode();
 } else {
   remove(country);
   fillCountryCode();
