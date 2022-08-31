@@ -118,22 +118,22 @@ const success = document.querySelector("#success");
 const error = document.querySelector("#error");
 
 //grab form values
-const fName = document.querySelector("#first-name").value;
-const lName = document.querySelector("#last-name").value;
-const email = document.querySelector("#email").value;
+const fName = document.querySelector("#first-name");
+const lName = document.querySelector("#last-name");
+const email = document.querySelector("#email");
 const phNumber =
   document.querySelector("#country-code").value +
   document.querySelector("#phone-number").value;
 const city = document.querySelector("#city").value;
-const profession = document.querySelector("#profession").value;
-const workplace = document.querySelector("#workplace").value;
-const college = document.querySelector("#college").value;
-const programingKnowledge = document.querySelector("#prog-exp").value;
-const source = document.querySelector("#source").value;
-const medium = document.querySelector("#medium").value;
-const campaign = document.querySelector("#campaign").value;
-const formCountry = document.querySelector("#country").value;
-const content = document.querySelector("#content").value;
+const profession = document.querySelector("#profession");
+const workplace = document.querySelector("#workplace");
+const college = document.querySelector("#college");
+const programingKnowledge = document.querySelector("#prog-exp");
+const source = document.querySelector("#source");
+const medium = document.querySelector("#medium");
+const campaign = document.querySelector("#campaign");
+const formCountry = document.querySelector("#country");
+const content = document.querySelector("#content");
 
 let formData = new FormData();
 
@@ -147,20 +147,20 @@ form.addEventListener("submit", (e) => {
   //check form value
   if (fName.value === "")
     //append data to the form
-    formData.append("fName", fName);
-  formData.append("lName", lName);
-  formData.append("email", email);
+    formData.append("fName", fName.value);
+  formData.append("lName", lName.value);
+  formData.append("email", email.value);
   formData.append("phNumber", phNumber);
-  formData.append("city", city);
-  formData.append("profession", profession);
-  formData.append("workplace", workplace);
-  formData.append("college", college);
-  formData.append("programingKnowledge", programingKnowledge);
-  formData.append("source", source);
-  formData.append("medium", medium);
-  formData.append("campaign", campaign);
-  formData.append("formCountry", formCountry);
-  formData.append("content", content);
+  formData.append("city", city.value);
+  formData.append("profession", profession.value);
+  formData.append("workplace", workplace.value);
+  formData.append("college", college.value);
+  formData.append("programingKnowledge", programingKnowledge.value);
+  formData.append("source", source.value);
+  formData.append("medium", medium.value);
+  formData.append("campaign", campaign.value);
+  formData.append("formCountry", formCountry.value);
+  formData.append("content", content.value);
 });
 
 function checkForEmpty() {
