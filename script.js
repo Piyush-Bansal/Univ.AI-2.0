@@ -68,7 +68,7 @@ async function getLocation() {
 
 //Remove objects
 function remove(country) {
-  if (country == "IN") {
+  if (country === "IN") {
     for (var i = 0; i < intr.length; i++) {
       intr[i].style.display = "none";
     }
@@ -112,7 +112,7 @@ async function fillCountryCode() {
 //send form data to make.com
 
 //grab form element
-const form = document.querySelector("#wf-form-homepage");
+const form = document.querySelector("#wf-form-common-form");
 const formBtn = document.querySelector("#submit");
 const success = document.querySelector("#success");
 const error = document.querySelector("#error");
@@ -124,7 +124,7 @@ const email = document.querySelector("#email");
 const phNumber =
   document.querySelector("#country-code").value +
   document.querySelector("#phone-number").value;
-const city = document.querySelector("#city").value;
+const city = document.querySelector("#city");
 const profession = document.querySelector("#profession");
 const workplace = document.querySelector("#workplace");
 const college = document.querySelector("#college");
@@ -134,31 +134,71 @@ const medium = document.querySelector("#medium");
 const campaign = document.querySelector("#campaign");
 const formCountry = document.querySelector("#country");
 const content = document.querySelector("#content");
-
+let formError = false;
 let formData = new FormData();
+
+//hide all the helper text and error
+removeErrors();
 
 //prevent default
 
 form.addEventListener("submit", (e) => {
   e.preventDefault();
-
+  formError = false;
+  removeErrors();
   checkForEmpty();
 
-  //append data to the form
-  // formData.append("fName", fName.value);
-  // formData.append("lName", lName.value);
-  // formData.append("email", email.value);
-  // formData.append("phNumber", phNumber);
-  // formData.append("city", city.value);
-  // formData.append("profession", profession.value);
-  // formData.append("workplace", workplace.value);
-  // formData.append("college", college.value);
-  // formData.append("programingKnowledge", programingKnowledge.value);
-  // formData.append("source", source.value);
-  // formData.append("medium", medium.value);
-  // formData.append("campaign", campaign.value);
-  // formData.append("formCountry", formCountry.value);
-  // formData.append("content", content.value);
+  if (formError == false) {
+    //append data to the form
+
+    formData.append("fName", fName.value);
+    formData.append("lName", lName.value);
+    formData.append("email", email.value);
+    formData.append("phNumber", phNumber);
+    formData.append("city", city.value);
+    formData.append("profession", profession.value);
+    formData.append("workplace", workplace.value);
+    formData.append("college", college.value);
+    formData.append("programingKnowledge", programingKnowledge.value);
+    formData.append("source", source.value);
+    formData.append("medium", medium.value);
+    formData.append("campaign", campaign.value);
+    formData.append("formCountry", formCountry.value);
+    formData.append("content", content.value);
+
+    //send the data to webhook
+    formBtn.value = "Processing..";
+
+    fetch("https://hook.us1.make.com/0frl3c5by3jxqd04ly8e93ammzt03fnr", {
+      method: "POST",
+      "Content-Type": "multipart/form-data; boundary=---generatedboundary",
+      body: formData,
+    })
+      .then((response) => {
+        if (response.ok) {
+          console.log("ok");
+          return response.json();
+        } else {
+          return response.text().then((text) => {
+            throw new Error(text);
+          });
+        }
+      })
+      .then((data) => {
+        formBtn.value = "Submit";
+        form.style.display = "none";
+        error.style.display = "none";
+        success.style.display = "block";
+        success.scrollIntoView();
+      })
+      .catch((err) => {
+        console.log("error");
+        formBtn.value = "Submit";
+        error.style.display = "block";
+        form.style.display = "grid";
+        success.style.display = "none";
+      });
+  }
 });
 
 function checkForEmpty() {
@@ -178,23 +218,26 @@ function checkForEmpty() {
     }
   }
 
-  // if (document.querySelector("#phone-number").value === "") {
-  //   setErrorFor(email, "Phone number cannot be empty");
-  // } else {
-  //   if (!isPhone(document.querySelector("#phone-number").value)) {
-  //     setErrorFor(
-  //       document.querySelector("#phone-number"),
-  //       "Enter a valid phone number"
-  //     );
-  //   }
-  // }
+  if (document.querySelector("#phone-number").value === "") {
+    setErrorFor(
+      document.querySelector("#phone-number"),
+      "Phone number cannot be empty"
+    );
+  } else {
+    if (!isPhone(document.querySelector("#phone-number").value)) {
+      setErrorFor(
+        document.querySelector("#phone-number"),
+        "Enter a valid phone number"
+      );
+    }
+  }
 
   if (city.value === "") {
     setErrorFor(city, "City cannot be empty");
   }
 
   if (profession.value === "") {
-    setErrorFor(profession, "Profession cannot be empty");
+    setErrorFor(profession, "Please select a value");
   }
 
   if (college.value === "") {
@@ -207,16 +250,41 @@ function checkForEmpty() {
 }
 
 function setErrorFor(input, message) {
+  input.classList.add("is--error");
   const formControl = input.parentElement;
   const helper = formControl.querySelector(".helper");
   helper.classList.remove("hide");
-  const errText = helper.querySelector("helper-text");
-  // errText.innerText = message;
+  const errText = helper.querySelector(".helper-text");
+  errText.innerText = message;
   errText.classList.add("is--red-4");
+  formError = true;
 }
 
 function isEmail(email) {
   return /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/.test(
     email
   );
+}
+
+function isPhone(phone) {
+  return /^[0-9-+s()]*$/.test(phone);
+}
+
+function removeErrors() {
+  const helper = form.querySelectorAll(".helper");
+  helper.forEach((help) => {
+    help.classList.add("hide");
+    const helperText = help.querySelector(".helper-text");
+    helperText.classList.remove("is--red-4");
+  });
+
+  const formInput = form.querySelectorAll("input");
+  formInput.forEach((input) => {
+    input.classList.remove("is--error");
+  });
+
+  const formSelect = form.querySelectorAll("select");
+  formSelect.forEach((selection) => {
+    selection.classList.remove("is--error");
+  });
 }
