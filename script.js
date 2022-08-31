@@ -110,3 +110,115 @@ async function fillCountryCode() {
 }
 
 //send form data to make.com
+
+//grab form element
+const form = document.querySelector("#wf-form-homepage");
+const formBtn = document.querySelector("#submit");
+const success = document.querySelector("#success");
+const error = document.querySelector("#error");
+
+//grab form values
+const fName = document.querySelector("#first-name").value;
+const lName = document.querySelector("#last-name").value;
+const email = document.querySelector("#email").value;
+const phNumber =
+  document.querySelector("#country-code").value +
+  document.querySelector("#phone-number").value;
+const city = document.querySelector("#city").value;
+const profession = document.querySelector("#profession").value;
+const workplace = document.querySelector("#workplace").value;
+const college = document.querySelector("#college").value;
+const programingKnowledge = document.querySelector("#prog-exp").value;
+const source = document.querySelector("#source").value;
+const medium = document.querySelector("#medium").value;
+const campaign = document.querySelector("#campaign").value;
+const formCountry = document.querySelector("#country").value;
+const content = document.querySelector("#content").value;
+
+let formData = new FormData();
+
+//prevent default
+
+form.addEventListener("submit", (e) => {
+  e.preventDefault();
+
+  checkForEmpty();
+
+  //check form value
+  if (fName.value === "")
+    //append data to the form
+    formData.append("fName", fName);
+  formData.append("lName", lName);
+  formData.append("email", email);
+  formData.append("phNumber", phNumber);
+  formData.append("city", city);
+  formData.append("profession", profession);
+  formData.append("workplace", workplace);
+  formData.append("college", college);
+  formData.append("programingKnowledge", programingKnowledge);
+  formData.append("source", source);
+  formData.append("medium", medium);
+  formData.append("campaign", campaign);
+  formData.append("formCountry", formCountry);
+  formData.append("content", content);
+});
+
+function checkForEmpty() {
+  if (fName.value === "") {
+    setErrorFor(fName, "First name cannot be blank");
+  }
+
+  if (lName.value === "") {
+    setErrorFor(lName, "Last name cannot be blank");
+  }
+
+  if (email.value === "") {
+    setErrorFor(email, "Email name cannot be blank");
+  } else {
+    if (!isEmail(email.value)) {
+      setErrorFor(email, "Not a valid email");
+    }
+  }
+
+  // if (document.querySelector("#phone-number").value === "") {
+  //   setErrorFor(email, "Phone number cannot be empty");
+  // } else {
+  //   if (!isPhone(document.querySelector("#phone-number").value)) {
+  //     setErrorFor(
+  //       document.querySelector("#phone-number"),
+  //       "Enter a valid phone number"
+  //     );
+  //   }
+  // }
+
+  if (city.value === "") {
+    setErrorFor(city, "City cannot be empty");
+  }
+
+  if (profession.value === "") {
+    setErrorFor(profession, "Profession cannot be empty");
+  }
+
+  if (college.value === "") {
+    setErrorFor(college, "College/University cannot be empty");
+  }
+
+  if (programingKnowledge.value === "") {
+    setErrorFor(programingKnowledge, "Please select a value");
+  }
+}
+
+function setErrorFor(input, message) {
+  const formControl = input.parentElement;
+  const helper = formControl.querySelector(".helper");
+  helper.classList.remove("hide");
+  const errText = helper.querySelector("helper-text");
+  errText.innerText = message;
+  errText.classList.add("is--red-4");
+}
+
+function isEmail(email) {
+  return /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/.test(
+    email
+  );
+}
