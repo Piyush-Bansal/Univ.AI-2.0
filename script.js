@@ -211,7 +211,7 @@ function setErrorFor(input, message) {
   const helper = formControl.querySelector(".helper");
   helper.classList.remove("hide");
   const errText = helper.querySelector("helper-text");
-  errText.innerText = message;
+  // errText.innerText = message;
   errText.classList.add("is--red-4");
 }
 
