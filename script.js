@@ -100,13 +100,13 @@ async function fillCountryCode() {
   const countryField = document.querySelector("#country");
   const findCountryCodeURL = `https://restcountries.com/v3.1/alpha?codes=${country}`;
   let countryCode = [];
-  let country = [];
+  let countryResponse = [];
   const response = await fetch(findCountryCodeURL);
   const data = await response.json();
   countryCode = `${data[0].idd.root}${data[0].idd.suffixes[0]}`;
-  country = data[0].name.common;
+  countryResponse = data[0].name.common;
   countryCodeField.value = countryCode;
-  countryField.value = country;
+  countryField.value = countryResponse;
 }
 
 //send form data to make.com
