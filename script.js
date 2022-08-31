@@ -104,3 +104,5 @@ async function fillCountryCode() {
   countryCode = `${data[0].idd.root}${data[0].idd.suffixes[0]}`;
   countryCodeField.value = countryCode;
 }
+
+//send form data to make.com
