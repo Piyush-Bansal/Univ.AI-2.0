@@ -144,23 +144,21 @@ form.addEventListener("submit", (e) => {
 
   checkForEmpty();
 
-  //check form value
-  if (fName.value === "")
-    //append data to the form
-    formData.append("fName", fName.value);
-  formData.append("lName", lName.value);
-  formData.append("email", email.value);
-  formData.append("phNumber", phNumber);
-  formData.append("city", city.value);
-  formData.append("profession", profession.value);
-  formData.append("workplace", workplace.value);
-  formData.append("college", college.value);
-  formData.append("programingKnowledge", programingKnowledge.value);
-  formData.append("source", source.value);
-  formData.append("medium", medium.value);
-  formData.append("campaign", campaign.value);
-  formData.append("formCountry", formCountry.value);
-  formData.append("content", content.value);
+  //append data to the form
+  // formData.append("fName", fName.value);
+  // formData.append("lName", lName.value);
+  // formData.append("email", email.value);
+  // formData.append("phNumber", phNumber);
+  // formData.append("city", city.value);
+  // formData.append("profession", profession.value);
+  // formData.append("workplace", workplace.value);
+  // formData.append("college", college.value);
+  // formData.append("programingKnowledge", programingKnowledge.value);
+  // formData.append("source", source.value);
+  // formData.append("medium", medium.value);
+  // formData.append("campaign", campaign.value);
+  // formData.append("formCountry", formCountry.value);
+  // formData.append("content", content.value);
 });
 
 function checkForEmpty() {
