@@ -87,13 +87,13 @@ function remove(country) {
 //Check for country
 if (country == null) {
   getLocation();
+  fillCountryCode();
 } else {
   remove(country);
+  fillCountryCode();
 }
 
 //fill up the country code
-
-fillCountryCode();
 
 async function fillCountryCode() {
   const countryCodeField = document.querySelector("#country-code");
