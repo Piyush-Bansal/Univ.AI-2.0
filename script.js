@@ -288,5 +288,3 @@ function removeErrors() {
     selection.classList.remove("is--error");
   });
 }
-
-//test
