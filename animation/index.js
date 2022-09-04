@@ -1,4 +1,6 @@
-let openMenu = gsap.timeline();
+let openMenu = gsap.timeline({
+  paused: true,
+});
 gsap.set(
   [
     ".nav__bg",
@@ -11,14 +13,17 @@ gsap.set(
     opacity: 0,
   }
 );
+
+gsap.set([".sidemenu", ".submenu__item"], {
+  opacity: 0,
+  x: "-100%",
+});
+
+gsap.set(".sidemenu .separator", {
+  width: 0,
+});
+
 openMenu
-  .set([".sidemenu", ".submenu__item"], {
-    opacity: 0,
-    x: "-100%",
-  })
-  .set(".sidemenu .separator", {
-    width: 0,
-  })
   .to(".nav__bg", {
     opacity: 1,
   })
