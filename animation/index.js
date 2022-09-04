@@ -192,13 +192,13 @@ closeMenu
 //open menu when course button is pressed
 courseNav.addEventListener("click", () => {
   if (window.innerWidth <= 1023) {
-    openMenuProg.restart();
+    openMenCourse.restart();
   } else {
-    openMenuProgD.restart();
+    openMenuCourseD.restart();
   }
 });
 
-let openMenuProgD = gsap.timeline({
+let openMenuCourseD = gsap.timeline({
   paused: true,
   ease: "Power2.easeOut",
 });
