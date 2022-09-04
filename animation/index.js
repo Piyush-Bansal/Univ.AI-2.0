@@ -203,7 +203,7 @@ let openMenuCourseD = gsap.timeline({
   ease: "Power2.easeOut",
 });
 
-openMenuProgD
+openMenuCourseD
   .to(".nav__bg", {
     opacity: 1,
     display: "block",
@@ -245,12 +245,12 @@ openMenuProgD
     "-=0.1"
   );
 
-let openMenuProg = gsap.timeline({
+let openMenuCourse = gsap.timeline({
   paused: true,
   ease: "Power2.easeOut",
 });
 
-openMenuProg
+openMenuCourse
   .to(".nav__bg", {
     opacity: 1,
     display: "block",
