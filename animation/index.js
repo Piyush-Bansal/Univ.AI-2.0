@@ -192,7 +192,7 @@ closeMenu
 //open menu when course button is pressed
 courseNav.addEventListener("click", () => {
   if (window.innerWidth <= 1023) {
-    openMenCourse.restart();
+    openMenuCourse.restart();
   } else {
     openMenuCourseD.restart();
   }
