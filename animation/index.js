@@ -1,6 +1,16 @@
 let openMenu = gsap.timeline();
-openMenu.to(".nav__bg", {
-  opacity: 0,
-  display: "none",
-  duration: 1,
-});
+openMenu
+  .from(".nav__bg", {
+    opacity: 0,
+  })
+  .from(".sidemenu", {
+    opacity: 0,
+    x: "-100%",
+  })
+  .to(".nav__bg", {
+    opacity: 1,
+  })
+  .to(".sidemenu", {
+    opacity: 0,
+    x: 0,
+  });
