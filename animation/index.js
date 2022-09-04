@@ -188,3 +188,106 @@ closeMenu
   .set(".sidemenu .separator", {
     width: 0,
   });
+
+//open menu when course button is pressed
+courseNav.addEventListener("click", () => {
+  if (window.innerWidth <= 1023) {
+    openMenuProg.restart();
+  } else {
+    openMenuProgD.restart();
+  }
+});
+
+let openMenuProgD = gsap.timeline({
+  paused: true,
+  ease: "Power2.easeOut",
+});
+
+openMenuProgD
+  .to(".nav__bg", {
+    opacity: 1,
+    display: "block",
+  })
+  .to(".sidemenu", {
+    opacity: 1,
+    x: 0,
+    duration: 0.4,
+  })
+  .to(
+    [".nav__close--wrapper", ".sidemenu .programs"],
+    {
+      opacity: 1,
+      display: "block",
+    },
+    "-=0.5"
+  )
+  .to(".programs > .submenu__item", {
+    x: 0,
+    opacity: 1,
+    duration: 0.2,
+    stagger: 0.2,
+  })
+  .to(
+    ".sidemenu .programs >.separator",
+    {
+      width: "100%",
+      stagger: 0.2,
+      duration: 0.2,
+    },
+    "-=1"
+  )
+  .to(
+    [".submenu__promo", ".sidemenu__wrapper > .button-wrapper"],
+    {
+      opacity: 1,
+      duration: 0.4,
+    },
+    "-=0.1"
+  );
+
+let openMenuProg = gsap.timeline({
+  paused: true,
+  ease: "Power2.easeOut",
+});
+
+openMenuProg
+  .to(".nav__bg", {
+    opacity: 1,
+    display: "block",
+  })
+  .to(".sidemenu", {
+    opacity: 1,
+    x: 0,
+    duration: 0.4,
+  })
+  .to(
+    [".sidemenu .programs"],
+    {
+      opacity: 1,
+      display: "block",
+    },
+    "-=0.5"
+  )
+  .to(".programs > .submenu__item", {
+    x: 0,
+    opacity: 1,
+    duration: 0.2,
+    stagger: 0.2,
+  })
+  .to(
+    ".sidemenu .programs >.separator",
+    {
+      width: "100%",
+      stagger: 0.2,
+      duration: 0.2,
+    },
+    "-=1"
+  )
+  .to(
+    [".submenu__promo", ".sidemenu__wrapper > .button-wrapper"],
+    {
+      opacity: 1,
+      duration: 0.4,
+    },
+    "-=0.1"
+  );
