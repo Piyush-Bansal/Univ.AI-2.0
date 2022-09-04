@@ -1,17 +1,17 @@
 let openMenu = gsap.timeline();
+gsap.set(
+  [
+    ".nav__bg",
+    ".nav__close--wrapper",
+    ".sidemenu__intro",
+    ".sidemenu .button-wrapper",
+    ".submenu__promo",
+  ],
+  {
+    opacity: 0,
+  }
+);
 openMenu
-  .set(
-    [
-      ".nav__bg",
-      ".nav__close--wrapper",
-      ".sidemenu__intro",
-      ".sidemenu .button-wrapper",
-      "submenu__promo",
-    ],
-    {
-      opacity: 0,
-    }
-  )
   .set([".sidemenu", ".submenu__item"], {
     opacity: 0,
     x: "-100%",
