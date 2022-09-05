@@ -35,6 +35,7 @@ gsap.set(".sidemenu .separator", {
 
 //open menu when program button is pressed
 progNav.addEventListener("click", () => {
+  scrollFreeze();
   if (window.innerWidth <= 1023) {
     openMenuProg.restart();
   } else {
@@ -78,7 +79,7 @@ openMenuProgD
       stagger: 0.2,
       duration: 0.2,
     },
-    "-=1"
+    "-=1.5"
   )
   .to(
     [".submenu__promo", ".sidemenu__wrapper > .button-wrapper"],
@@ -125,7 +126,7 @@ openMenuProg
       stagger: 0.2,
       duration: 0.2,
     },
-    "-=1"
+    "-=1.5"
   )
   .to(
     [".submenu__promo", ".sidemenu__wrapper > .button-wrapper"],
@@ -140,6 +141,7 @@ openMenuProg
 const closeSubmenu = document.querySelector("#close__side-menu");
 
 closeSubmenu.addEventListener("click", () => {
+  scrollUnFreeze();
   closeMenu.restart();
 });
 
@@ -191,6 +193,7 @@ closeMenu
 
 //open menu when course button is pressed
 courseNav.addEventListener("click", () => {
+  scrollFreeze();
   if (window.innerWidth <= 1023) {
     openMenuCourse.restart();
   } else {
@@ -214,27 +217,27 @@ openMenuCourseD
     duration: 0.4,
   })
   .to(
-    [".nav__close--wrapper", ".sidemenu .programs"],
+    [".nav__close--wrapper", ".sidemenu .courses"],
     {
       opacity: 1,
       display: "block",
     },
     "-=0.5"
   )
-  .to(".programs > .submenu__item", {
+  .to(".courses > .submenu__item", {
     x: 0,
     opacity: 1,
     duration: 0.2,
     stagger: 0.2,
   })
   .to(
-    ".sidemenu .programs >.separator",
+    ".sidemenu .courses >.separator",
     {
       width: "100%",
       stagger: 0.2,
       duration: 0.2,
     },
-    "-=1"
+    "-=1.5"
   )
   .to(
     [".submenu__promo", ".sidemenu__wrapper > .button-wrapper"],
@@ -261,27 +264,27 @@ openMenuCourse
     duration: 0.4,
   })
   .to(
-    [".sidemenu .programs"],
+    [".sidemenu .courses"],
     {
       opacity: 1,
       display: "block",
     },
     "-=0.5"
   )
-  .to(".programs > .submenu__item", {
+  .to(".courses > .submenu__item", {
     x: 0,
     opacity: 1,
     duration: 0.2,
     stagger: 0.2,
   })
   .to(
-    ".sidemenu .programs >.separator",
+    ".sidemenu .courses >.separator",
     {
       width: "100%",
       stagger: 0.2,
       duration: 0.2,
     },
-    "-=1"
+    "-=1.5"
   )
   .to(
     [".submenu__promo", ".sidemenu__wrapper > .button-wrapper"],
@@ -291,3 +294,13 @@ openMenuCourse
     },
     "-=0.1"
   );
+
+function scrollFreeze() {
+  const body = document.querySelector("body");
+  body.style.overflow = "hidden";
+}
+
+function scrollUnFreeze() {
+  const body = document.querySelector("body");
+  body.style.overflow = "visible";
+}
