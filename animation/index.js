@@ -60,7 +60,7 @@ closeMenu
       x: "-100%",
       duration: 0.4,
     },
-    "-=0.1"
+    "-=0.5"
   )
   .set(".nav__close", { rotate: 0 })
   .set(
@@ -72,7 +72,6 @@ closeMenu
       ".sidemenu__wrapper > .button-wrapper",
     ],
     {
-      delay: 0.5,
       opacity: 0,
     }
   )
