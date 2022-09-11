@@ -79,8 +79,7 @@ function navDark() {
     ".sidemenu-2 .button-primary, .sidemenu .button-primary"
   );
   sideMenuBtn.forEach((btn) => {
-    btn.classList.remove("button-primary");
-    btn.classList.add("button-secondary");
+    btn.classList.add("is--dark");
     btn.querySelector(".monospace").style.color = "#1b1b1b";
   });
 }
@@ -134,12 +133,18 @@ function navLight() {
     ".sidemenu-2 .button-primary, .sidemenu .button-primary"
   );
   sideMenuBtn.forEach((btn) => {
-    btn.classList.remove("button-secondary");
-    btn.classList.add("button-primary");
+    btn.classList.remove("is--dark");
     btn.querySelector(".monospace").style.color = "white";
   });
 }
 
 window.addEventListener("resize", () => {
   topBarHeight = document.querySelector(".topbar").clientHeight;
+
+  if (window.innerWidth > 1023) {
+    const navHamburger = document.querySelectorAll(".hamburger");
+    navHamburger.forEach((icon) => {
+      icon.style.display = "none";
+    });
+  }
 });
