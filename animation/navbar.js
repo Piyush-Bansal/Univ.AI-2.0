@@ -617,7 +617,7 @@ function check(section) {
 function navDark() {
   const navBg = document.querySelectorAll(".topbar, .sidemenu,.sidemenu-2");
   navBg.forEach((bg) => {
-    bg.style.backgroundColor = "#1B1B1B";
+    bg.style.backgroundColor = "#1c1c1c";
   });
 
   const hoverBG = document.querySelectorAll(".navbar .hover-bg");
@@ -664,7 +664,7 @@ function navDark() {
   );
   sideMenuBtn.forEach((btn) => {
     btn.classList.add("is--dark");
-    btn.querySelector(".monospace").style.color = "#1b1b1b";
+    btn.querySelector(".monospace").style.color = "#1c1c1c";
   });
 }
 
@@ -680,7 +680,7 @@ function navLight() {
 
     const paragraphs = document.querySelectorAll(".navbar p , .navbar .p");
     paragraphs.forEach((paragraph) => {
-      paragraph.style.color = "#1B1B1B";
+      paragraph.style.color = "#1c1c1c";
     });
 
     const navSeparators = document.querySelectorAll(".navbar .separator");
@@ -707,7 +707,7 @@ function navLight() {
     ".logo__code, .nav__close-img, .sidemenu-2 .is--arrow, .navbar .monospace, .sidemenu .is--arrow"
   );
   navSvg.forEach((icon) => {
-    icon.style.color = "#1B1B1B";
+    icon.style.color = "#1c1c1c";
   });
 
   const navButton = document.querySelector(".topbar .pill-button");
