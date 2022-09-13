@@ -605,7 +605,7 @@ allSections.forEach((section) => {
 
 function check(section) {
   if (
-    section.classList.contains("bg-cobat-blue-4") ||
+    section.classList.contains("bg-cobalt-blue-4") ||
     section.classList.contains("bg-dark-grey-6")
   ) {
     navDark();
