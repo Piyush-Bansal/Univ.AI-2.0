@@ -12,7 +12,7 @@ $(".starter-odometer").each(function () {
   odometer.render(startValue);
   ScrollTrigger.create({
     trigger: this,
-    start: "center 90%",
+    start: "top 95%",
     onEnter: () => {
       odometer.update(endValue);
     },
