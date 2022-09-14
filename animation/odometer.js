@@ -7,7 +7,7 @@ $(".starter-odometer").each(function () {
     el: this,
     value: startValue,
     format: "d",
-    duration: 10000,
+    duration: 400,
   });
   odometer.render(startValue);
   ScrollTrigger.create({
