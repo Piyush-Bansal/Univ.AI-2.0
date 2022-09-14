@@ -7,12 +7,12 @@ $(".starter-odometer").each(function () {
     el: this,
     value: startValue,
     format: "d",
-    duration: 9000,
+    duration: 10000,
   });
   odometer.render(startValue);
   ScrollTrigger.create({
     trigger: this,
-    start: "top 75%",
+    start: "top 85%",
     onEnter: () => {
       odometer.update(endValue);
     },
