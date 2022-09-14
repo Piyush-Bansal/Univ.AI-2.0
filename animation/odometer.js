@@ -10,7 +10,8 @@ $(".starter-odometer").each(function () {
   // To avoid layout shifting, the endValue is constructed just
   // like the startValue - only this time with the desired end
   // value in the middle.
-  var endValue = "1" + "123456.78" + "1";
+  let content = this.textContent;
+  var endValue = "1" + content + "1";
   // Options for the odometer
   var odometer = new Odometer({
     // el tells the odometer script which element should be the odometer
