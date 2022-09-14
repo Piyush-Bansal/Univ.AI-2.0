@@ -11,7 +11,8 @@ $(".starter-odometer").each(function () {
   // like the startValue - only this time with the desired end
   // value in the middle.
   let content = this.textContent;
-  var endValue = "1" + content + "1";
+  console.log("content");
+  var endValue = content;
   // Options for the odometer
   var odometer = new Odometer({
     // el tells the odometer script which element should be the odometer
@@ -21,7 +22,7 @@ $(".starter-odometer").each(function () {
     // Change how digit groups are formatted, and how many digits
     // are shown after the decimal point
     format: "d",
-    duration: 9000,
+    duration: 15000,
   });
   // Init odometer with the defined start value
   odometer.render(startValue);
