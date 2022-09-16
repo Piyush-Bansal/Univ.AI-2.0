@@ -14,8 +14,13 @@ p ~ p {
 
 ul ~ p,
 ol ~ p,
-p ~ ol {
+p ~ ol,
+p ~ ul {
   margin-top: 0.7619em;
+}
+
+.profiles > .profile__wrapper:last-child .separator {
+  display: none;
 }
 
 .sidemenu {
@@ -125,6 +130,10 @@ p ~ ol {
 
   .aspect-ratio-t-9-21 {
     aspect-ratio: 9 / 21;
+  }
+
+  .card-wrapper .separator:nth-child(2n) {
+    display: none;
   }
 }
 
