@@ -9,7 +9,7 @@ marqueeWrapper.forEach((wrapper) => {
   const rowWidth = marqueeRow.clientWidth;
 
   // append  5 copies of the row into wrapper
-  for (i = 0; i < 5; i++) {
+  for (i = 0; i < 3; i++) {
     wrapper.appendChild(marqueeRow.cloneNode(true));
   }
 });
@@ -18,6 +18,6 @@ marqueeWrapper.forEach((wrapper) => {
 gsap.to(".marquee-row", {
   x: "-100%",
   repeat: -1,
-  duration: 15,
+  duration: 12,
   ease: "linear",
 });
