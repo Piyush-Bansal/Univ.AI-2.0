@@ -13,6 +13,9 @@ charaBreak.forEach((char) => {
 
 // Animate characters into view with a stagger effect
 gsap.from(textBreakup.chars, {
+  scrollTrigger: {
+    start: "top 75%",
+  },
   duration: 1.8,
   ease: "circ.inOut",
   x: "-200%",
