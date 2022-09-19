@@ -11,13 +11,18 @@ charaBreak.forEach((char) => {
   wrapper.classList.add("char-wrapper");
 });
 
-// Animate characters into view with a stagger effect
-gsap.from(textBreakup.chars, {
-  scrollTrigger: {
-    start: "top 75%",
-  },
-  duration: 1.8,
-  ease: "circ.inOut",
-  x: "-200%",
-  stagger: { amount: 0.7 },
+const breakupElements = document.querySelectorAll(".text-reveal");
+breakupElements.forEach((element) => {
+  gsap.from(element.querySelectorAll(".char"), {
+    scrollTrigger: {
+      trigger: element,
+      start: "top 95%",
+      markers: true,
+    },
+    duration: 0.5,
+    ease: "circ.inOut",
+    x: "-110%",
+    stagger: { amount: 0.7 },
+  });
 });
+//some random text
