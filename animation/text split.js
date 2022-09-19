@@ -17,12 +17,10 @@ breakupElements.forEach((element) => {
     scrollTrigger: {
       trigger: element,
       start: "top 95%",
-      markers: true,
     },
-    duration: 0.5,
+    duration: 0.4,
     ease: "circ.inOut",
     x: "-110%",
-    stagger: { amount: 0.7 },
+    stagger: { amount: 0.8 },
   });
 });
-//some random text
