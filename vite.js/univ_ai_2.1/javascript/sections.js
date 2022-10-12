@@ -6,7 +6,7 @@ tableRow.forEach((row) => {
     opacity: 0,
     duration: 0.5,
     stagger: 0.2,
-    ease: Power4.easeOut,
+    ease: "Power4.easeOut",
     scrollTrigger: {
       trigger: row,
       start: "start 75%",
@@ -22,7 +22,7 @@ curtainElements.forEach((element) => {
     y: "101%",
     stagger: 0.4,
     duration: 0.8,
-    ease: Power4.easeInOut,
+    ease: "Power4.easeInOut",
     scrollTrigger: {
       trigger: element,
       start: "start 75%",
@@ -36,18 +36,18 @@ imgWrapper.forEach((wrapper) => {
   const imgWrapperImg = wrapper.querySelectorAll(".parallax");
   imgWrapperImg.forEach((img) => {
     gsap.set(img, {
-      height: "110%",
-      width: "110%",
-      y: "-10%",
+      height: "112%",
+      width: "112%",
+      y: "-12%",
     });
 
     gsap.to(img, {
       y: "0%",
-      ease: Power1.easeInOut,
+      ease: "sine.inOut",
       scrollTrigger: {
         trigger: img,
-        start: "start 85%",
-        end: "start 15%",
+        start: "start 68%",
+        end: "start 12%",
         scrub: true,
       },
     });
@@ -73,7 +73,7 @@ valueProps.forEach((value) => {
   function scene() {
     const valueTl = gsap.timeline({
       duration: 0.3,
-      ease: Power4.easeInOut,
+      ease: "Power4.easeInOut",
     });
 
     valueTl
@@ -104,7 +104,7 @@ for (let item of formElement) {
     opacity: 0,
     duration: 0.5,
     stagger: 0.2,
-    ease: Power4.easeOut,
+    ease: "Power4.easeOut",
     scrollTrigger: {
       trigger: item,
       start: "start 85%",
@@ -174,79 +174,3 @@ for (let item of formElement) {
 //     profilesMasterTl.add(scene(), "-=1.4");
 //   });
 // });
-const profileWrapper = document.querySelectorAll(".profiles__wrapper");
-profileWrapper.forEach((section) => {
-  const curtain = section.querySelectorAll(".profile-img__curtain");
-  const profileTitle = section.querySelectorAll(".profile__title");
-  const profileDescription = section.querySelectorAll(".profile_description");
-  const separator = section.querySelectorAll(".separator");
-
-  curtain.forEach((element) => {
-    gsap.set(element, { display: "block" });
-  });
-
-  const profileTl = gsap.timeline({
-    duration: 0.8,
-    stagger: 0.2,
-    ease: Power4.easeInOut,
-    scrollTrigger: {
-      trigger: section,
-      start: "start 85%",
-    },
-  });
-
-  profileTl
-    .to(curtain, { y: "101%", stagger: 0.2 })
-    .from(
-      profileTitle,
-      {
-        opacity: 0,
-        y: "-20%",
-      },
-      "-=1"
-    )
-    .from(
-      profileDescription,
-      {
-        opacity: 0,
-        y: "-20%",
-      },
-      "-=1.2"
-    )
-    .from(
-      separator,
-      {
-        height: 0,
-      },
-      "-=0.2"
-    );
-});
-
-// horizontal text stagger
-
-const textBreakupH = new SplitType(".text-reveal-h", { types: "lines" });
-
-// add the characters to a div
-let lineBreak = document.querySelectorAll(".line");
-lineBreak.forEach((line) => {
-  let parent = line.parentNode;
-  let wrapper = document.createElement("div");
-  parent.replaceChild(wrapper, line);
-  wrapper.appendChild(line);
-  wrapper.classList.add("line-wrapper");
-});
-
-const lineBreakupElements = document.querySelectorAll(".text-reveal-h");
-lineBreakupElements.forEach((element) => {
-  gsap.from(element.querySelectorAll(".line"), {
-    scrollTrigger: {
-      trigger: element,
-      start: "top 70%",
-      markers: true,
-    },
-    duration: 0.4,
-    ease: "circ.inOut",
-    y: "-100%",
-    stagger: { amount: 0.2 },
-  });
-});

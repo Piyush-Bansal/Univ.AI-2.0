@@ -14,15 +14,14 @@ openModal.addEventListener("click", () => {
   );
 });
 
-closeModal.addEventListener("click", closeMoadal);
-modalBg.addEventListener("click", closeMoadal);
+closeModal.addEventListener("click", closeM);
 
 function scrollFreezeModal() {
   const body = document.querySelector("body");
   body.style.overflow = "hidden";
 }
 
-function closeMoadal() {
+function closeM() {
   let modalTl = gsap.timeline();
   modalTl
     .to(".modal", {
