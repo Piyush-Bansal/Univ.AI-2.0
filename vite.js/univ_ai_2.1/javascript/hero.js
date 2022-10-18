@@ -33,11 +33,11 @@ window.addEventListener("DOMContentLoaded", () => {
         stagger: { amount: 0.2 },
       },
       "-=0.4"
-    )
-    .fromTo(
-      [".hero .button-wrapper", ".hero p"],
-      { opacity: 0 },
-      { opacity: 1 },
-      "-=0.4"
     );
+  // .fromTo(
+  //   [".hero .button-wrapper", ".hero p"],
+  //   { opacity: 0 },
+  //   { opacity: 1 },
+  //   "-=0.4"
+  // );
 });
