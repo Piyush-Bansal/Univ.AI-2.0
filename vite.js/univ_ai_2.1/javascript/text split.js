@@ -11,7 +11,7 @@ charaBreak.forEach((char) => {
   wrapper.classList.add("char-wrapper");
 });
 
-const breakupElements = document.querySelectorAll(".text-reveal");
+const breakupElements = document.querySelectorAll(".text-reveal:not(.hero)");
 breakupElements.forEach((element) => {
   gsap.from(element.querySelectorAll(".char"), {
     scrollTrigger: {
