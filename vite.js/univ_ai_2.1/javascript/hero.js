@@ -39,6 +39,5 @@ window.addEventListener("DOMContentLoaded", () => {
       { opacity: 0 },
       { opacity: 1 },
       "-=0.4"
-    )
-    .from(".navbar", { y: "100%" });
+    );
 });
