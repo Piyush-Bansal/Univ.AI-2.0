@@ -34,6 +34,11 @@ window.addEventListener("DOMContentLoaded", () => {
       },
       "-=0.4"
     )
-    .fromTo(".hero .button-wrapper", { opacity: 0 }, { opacity: 1 }, "-=0.4")
+    .fromTo(
+      [".hero .button-wrapper", ".hero p"],
+      { opacity: 0 },
+      { opacity: 1 },
+      "-=0.4"
+    )
     .from(".navbar", { y: "100%" });
 });
