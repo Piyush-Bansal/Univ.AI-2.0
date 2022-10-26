@@ -1,31 +1,30 @@
 // marquee animation
-window.addEventListener("load", () => {
-  // grab the wrapper element
-  const marqueeWrapper = document.querySelectorAll(".marquee-wrapper");
 
-  marqueeWrapper.forEach((wrapper) => {
-    // grab children of the wrapper
-    const marqueeRow = wrapper.querySelector(".marquee-row");
-    const rowWidth = marqueeRow.clientWidth;
+// grab the wrapper element
+const marqueeWrapper = document.querySelectorAll(".marquee-wrapper");
 
-    // get flex gap
-    const wrapperStyle = window.getComputedStyle(wrapper);
-    let gap = wrapperStyle.getPropertyValue("grid-column-gap");
-    gap = parseFloat(gap, 10);
+marqueeWrapper.forEach((wrapper) => {
+  // grab children of the wrapper
+  const marqueeRow = wrapper.querySelector(".marquee-row");
+  const rowWidth = marqueeRow.clientWidth;
 
-    const totalWidth = rowWidth + gap * 2;
+  // get flex gap
+  const wrapperStyle = window.getComputedStyle(wrapper);
+  let gap = wrapperStyle.getPropertyValue("grid-column-gap");
+  gap = parseFloat(gap, 10);
 
-    // append  5 copies of the row into wrapper
-    for (i = 0; i < 3; i++) {
-      wrapper.appendChild(marqueeRow.cloneNode(true));
-    }
+  const totalWidth = rowWidth + gap * 2;
 
-    // add gsap
-    gsap.to(".marquee-row", {
-      x: totalWidth * -1,
-      repeat: -1,
-      duration: 12,
-      ease: "linear",
-    });
+  // append  5 copies of the row into wrapper
+  for (i = 0; i < 3; i++) {
+    wrapper.appendChild(marqueeRow.cloneNode(true));
+  }
+
+  // add gsap
+  gsap.to(".marquee-row", {
+    x: totalWidth * -1,
+    repeat: -1,
+    duration: 12,
+    ease: "linear",
   });
 });
