@@ -1,5 +1,7 @@
 // Split text into words and characters
-const textBreakup = new SplitType(".text-reveal", { types: "words, chars" });
+const textBreakup = new SplitType(".text-reveal", {
+  types: "lines, words, chars",
+});
 
 // add the characters to a div
 let charaBreak = document.querySelectorAll(".char");
