@@ -1,6 +1,6 @@
 // Split text into words and characters
 const textBreakup = new SplitType(".text-reveal", {
-  types: "lines, words, chars",
+  types: "words, chars",
 });
 
 // add the characters to a div

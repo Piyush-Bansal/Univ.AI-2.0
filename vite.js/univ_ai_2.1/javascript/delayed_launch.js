@@ -1,7 +1,7 @@
 window.addEventListener("load", () => {
   setTimeout(() => {
     let head = document.getElementsByTagName("head")[0];
-    let commitId = "d4031bef5a8bc54b69b743c74eb9c4ea73ab3773";
+    let commitId = "c121048516b3dcb9c1e8d7013882bb33c23bbd8c";
     let filePath = `https://cdn.jsdelivr.net/gh/Piyush-Bansal/Univ.AI-2.0@${commitId}/vite.js/univ_ai_2.1/javascript/`;
     let sources = [
       "marquee.min.js",
