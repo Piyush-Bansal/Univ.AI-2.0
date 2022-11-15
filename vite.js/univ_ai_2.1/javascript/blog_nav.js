@@ -220,4 +220,7 @@ navShare.addEventListener("click", async () => {
   await navigator.share(shareData);
 });
 
-window.addEventListener("load", check(document.querySelector(".wf-section")));
+window.addEventListener(
+  "DOMContentLoaded",
+  check(document.querySelector(".wf-section"))
+);
