@@ -7,7 +7,8 @@ window.addEventListener("DOMContentLoaded", () => {
   heroTimeline
     .from(".hero .hero__label .char", {
       x: "-110%",
-      stagger: { amount: 0.8 },
+      stagger: { amount: 0.4 },
+      duration: 0.2,
     })
     .from(
       ".hero .hero__headline .char",

@@ -5,7 +5,7 @@ window.addEventListener("DOMContentLoaded", () => {
     direction: "vertical",
     smooth: true,
     smoothTouch: false,
-    touchMultiplier: 1.2,
+    touchMultiplier: 1.3,
   });
 
   const overScroll = document.querySelectorAll(".over--scroll");

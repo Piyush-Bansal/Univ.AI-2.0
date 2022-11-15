@@ -1,0 +1,67 @@
+table {
+  margin-top: 3.33em;
+  margin-bottom: 3.33em;
+  text-align: left;
+  border-collapse: collapse;
+  overflow-x: auto;
+  margin-left: 33.75em;
+}
+table td,
+table th {
+  border: 0px solid #ffffff;
+  padding: 0.761904762em 0.952380952em;
+  min-width: 10.2857143em;
+}
+table tbody td {
+  font-size: 1.09em;
+  color: #1b1b1b;
+}
+table tr:nth-child(even) {
+  background: #e6e6e6;
+}
+table thead {
+  border-bottom: 0.1em solid #1b1b1b;
+}
+table thead th {
+  font-size: 1.09em;
+  font-weight: normal;
+  color: #1b1b1b;
+  text-align: left;
+  font-family: "Iosevka extended";
+  text-transform: uppercase;
+}
+
+.w-embed {
+  overflow-x: auto;
+}
+
+@media (max-width: 1023px) {
+  table td,
+  table th {
+    padding: 0.75em 1em;
+    min-width: 11.5em;
+  }
+  table tbody td,
+  table thead th {
+    font-size: 2.08em;
+  }
+
+  table {
+    margin-left: 23.96em;
+    margin-top: 5.47em;
+    margin-bottom: 5.47em;
+  }
+}
+
+@media (max-width: 765px) {
+  table {
+    margin-left: 0;
+    margin-top: 5.47em;
+    margin-bottom: 5.47em;
+  }
+
+  table tbody td,
+  table thead th {
+    font-size: 4.44em;
+  }
+}

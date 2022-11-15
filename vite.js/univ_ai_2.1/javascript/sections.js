@@ -1,6 +1,6 @@
 //stagger reveal table rows
 const tableRow = document.querySelectorAll(
-  ".table-row, .accordion, .table-label"
+  ".table-row, .accordion, .table-label, .stagger-reveal"
 );
 tableRow.forEach((row) => {
   gsap.from(row, {
