@@ -8,7 +8,6 @@ window.addEventListener("DOMContentLoaded", () => {
     .from(".hero .hero__label .char", {
       x: "-110%",
       stagger: { amount: 0.4 },
-      duration: 0.2,
     })
     .from(
       ".hero .hero__headline .char",
@@ -27,18 +26,16 @@ window.addEventListener("DOMContentLoaded", () => {
       "-=0.4"
     )
     .from(
-      ".hero p .line",
+      [".hero p ", ".hero .button-wrapper"],
       {
         ease: "circ.inOut",
-        y: "-100%",
-        stagger: { amount: 0.2 },
+        opacity: 0,
       },
       "-=0.4"
+    )
+    .fromTo(
+      ".hero__content-wrapper .separator",
+      { height: "0%" },
+      { height: "100%" }
     );
-  // .fromTo(
-  //   [".hero .button-wrapper", ".hero p"],
-  //   { opacity: 0 },
-  //   { opacity: 1 },
-  //   "-=0.4"
-  // );
 });

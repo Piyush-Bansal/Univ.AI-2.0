@@ -57,43 +57,47 @@ imgWrapper.forEach((wrapper) => {
 });
 
 // value prop animations
-const valueProps = document.querySelectorAll(".value-prop");
-const valuePropTl = gsap.timeline({
-  scrollTrigger: {
-    trigger: valueProps,
-    start: "start 75%",
-  },
-});
 
-valueProps.forEach((value) => {
-  const valuePropImg = value.querySelectorAll(".value-prop__illustration");
-  const valuePropSeparator = value.querySelectorAll(".value-prop .separator");
-  const valuePropNumber = value.querySelectorAll(".value-prop .monospace");
-  const valuePropHeadline = value.querySelectorAll(".value-prop h5");
-  const valuePropDescription = value.querySelectorAll(".value-prop p");
+const valuePropSections = document.querySelectorAll(".wf-section");
+valuePropSections.forEach((section) => {
+  const valueProps = section.querySelectorAll(".value-prop");
+  const valuePropTl = gsap.timeline({
+    scrollTrigger: {
+      trigger: valueProps,
+      start: "start 75%",
+    },
+  });
 
-  function scene() {
-    const valueTl = gsap.timeline({
-      duration: 0.3,
-      ease: "Power4.easeInOut",
-    });
+  valueProps.forEach((value) => {
+    const valuePropImg = value.querySelectorAll(".value-prop__illustration");
+    const valuePropSeparator = value.querySelectorAll(".value-prop .separator");
+    const valuePropNumber = value.querySelectorAll(".value-prop .monospace");
+    const valuePropHeadline = value.querySelectorAll(".value-prop h5");
+    const valuePropDescription = value.querySelectorAll(".value-prop p");
 
-    valueTl
-      .from(valuePropImg, { y: "10%", opacity: 0 })
-      .from(valuePropSeparator, { width: "0%" }, "-=0.3")
-      .from(
-        [valuePropNumber, valuePropHeadline, valuePropDescription],
-        {
-          y: "10%",
-          opacity: 0,
-          stagger: 0.2,
-        },
-        "-=0.3"
-      );
-    return valueTl;
-  }
+    function scene() {
+      const valueTl = gsap.timeline({
+        duration: 0.3,
+        ease: "Power4.easeInOut",
+      });
 
-  valuePropTl.add(scene(), "-=0.8");
+      valueTl
+        .from(valuePropImg, { y: "10%", opacity: 0 })
+        .from(valuePropSeparator, { width: "0%" }, "-=0.3")
+        .from(
+          [valuePropNumber, valuePropHeadline, valuePropDescription],
+          {
+            y: "10%",
+            opacity: 0,
+            stagger: 0.2,
+          },
+          "-=0.3"
+        );
+      return valueTl;
+    }
+
+    valuePropTl.add(scene(), "-=0.8");
+  });
 });
 
 //form child stagger
